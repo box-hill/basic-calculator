@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    margin:0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 350px;
+    height:500px; 
+    background-color:antiquewhite;
+    flex-shrink: 0;
+}
+
+
+.screen{
+    height: 60px;
+    width: 310px;
+    margin: 20px;
+    background-color: rgb(245, 245, 245);
+}
+
+.button-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-panel button{
+    width:60px;
+    height: 60px;
+    margin: 10px;
+}
+
+#eql-btn{
+    width:120px;
+    height: 60px;
+    margin:10px;
+}
