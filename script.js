@@ -1,3 +1,12 @@
+import { initializeApp } from 'firebase/app';
+import {
+    getAuth,
+    onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+  } from 'firebase/auth';
+
 // press button -> add numbers or operator (add eventlistenr)
 // state 1: user has now pressed a valid number, waiting on more numbers or operator
 // state 2: operator inputed, first number input is now complete
@@ -99,3 +108,24 @@ function operate(obj){
   obj.input1 = result;
   return result;
 }
+
+async function signIn() {
+    var provider = new GoogleAuthProvider();
+    await signInWithPopup(getAuth(), provider);
+    // TODO 1: Sign in Firebase with credential from the Google user.
+  }
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDPwdabgcpWIo8BIi13-0u19bqQTlqdFkc",
+    authDomain: "friendlychat-80976.firebaseapp.com",
+    projectId: "friendlychat-80976",
+    storageBucket: "friendlychat-80976.appspot.com",
+    messagingSenderId: "627226691091",
+    appId: "1:627226691091:web:17858e33f011196807a1e6"
+};
+
+const signInBtn = document.getElementById('sign-in');
+signInBtn.addEventListener('click', () => signIn());
+
+const app = initializeApp(firebaseConfig);
+
