@@ -55,25 +55,24 @@ function updateVariables(input){
         screen_input.operator = input;
         screen.innerHTML = input;
     }
-    if(screen_input.state === 2 && Number.isInteger(parseInt(input))){
+    if (screen_input.state === 2 && Number.isInteger(parseInt(input))){
         screen_input.state = 3;
         screen_input.input2 = input;
         screen.innerHTML = input;
         return;
     }
-    if(screen_input.state === 3 && Number.isInteger(parseInt(input))){
+    if (screen_input.state === 3 && Number.isInteger(parseInt(input, 10))) {
         screen_input.input2 += input;
         screen.innerHTML += input;
         return;
     }
     if(screen_input.state === 3 && input === '='){
         screen.innerHTML = operate(screen_input); // do calculations and update screen
-        return;
     }
 }
 
 function operate(obj){
-    if(obj.state != 3) return null; // only operate on state 3
+    if (obj.state != 3) return null; // only operate on state 3
 
     let first_arg = parseInt(obj.input1);
     let second_arg = parseInt(obj.input2);
@@ -97,6 +96,6 @@ function operate(obj){
     }
     
     obj.state = 1; // use result as next input1
-    obj.input1 = result;
-    return result;
+  obj.input1 = result;
+  return result;
 }
